@@ -24,7 +24,6 @@ Fork of [NeonLite](https://github.com/MOPSKATER/NeonLite) modified to ~~kinda~~f
   * Shows how much you deviate from your pb.
 * Discord Integation
   * You want to tell your friends how many time you are wasting on a particular level? Now your status does exactly that for you. (Messages configurable!)
-  * If this feature causes problems, use `-neonlite_disable_discord` as start argument to disable discord integration entirely
 * DidNotFinish Timer
   * If you're an avid enjoyer of short levels, this mod will show you what your time would have been, if you had finished said run!
 * More Detailed Timers
@@ -54,7 +53,3 @@ Fork of [NeonLite](https://github.com/MOPSKATER/NeonLite) modified to ~~kinda~~f
 4. Download the latest version of [UniverseLib](https://github.com/sinai-dev/UniverseLib/releases/download/1.5.1/UniverseLib.Mono.zip), unpack it and move the .dll file into your Neon White mods folder as in the previous step.
 5. Download the `NeonLite.dll` from the [Releases page](https://github.com/koxx12-dev/NeonLite/releases) and drop it in the mods folder.
 6. Once it's all working, press F5 in-game to change the settings for the mod.
-
-### Additional Notes
-
-Unless you're a mod developer, make sure to add `--melonloader.hideconsole` to your game launch properties (right click the game in steam -> properties -> launch options at the bottom of that window) to hide the console that melonloader loads in. It makes your game boot up faster xd
