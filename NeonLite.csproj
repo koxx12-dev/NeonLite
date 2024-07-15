@@ -7,62 +7,54 @@
 	<AssemblyName>NeonLite</AssemblyName>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <NeonWhite>C:\XboxGames\Neon White\Content</NeonWhite>
+    <ManagedFolder>$(NeonWhite)\Neon White_Data\Managed</ManagedFolder>
+    <OutputFolder Condition="'$(OutputFolder)' == ''">Mods</OutputFolder>
+  </PropertyGroup>
+  
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\MelonLoader\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="Ink-Libraries">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\Ink-Libraries.dll</HintPath>
-    </Reference>
-    <Reference Include="MelonLoader">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\MelonLoader\MelonLoader.dll</HintPath>
-    </Reference>
-    <Reference Include="MelonPrefManager.Mono">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Mods\MelonPrefManager.Mono.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\Unity.InputSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.TextCoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UIModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.UIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>G:\Spiele\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
-    </Reference>
+    <Reference Include="$(NeonWhite)\MelonLoader\net35\MelonLoader.dll" Private="false"/>
+    <Reference Include="$(NeonWhite)\MelonLoader\net35\0Harmony.dll" Private="false"/>
   </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="$(ManagedFolder)\Assembly-CSharp.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\Assembly-CSharp-firstpass.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\BitCode.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\BitCode.Platform.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\BitCode.Platform.PlayFab.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\BitCode.Platform.PlayFab.WindowsGameCore.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\BitCode.Platform.WindowsGameCore.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\Ink-Libraries.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\Unity.InputSystem.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\Unity.TextMeshPro.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.CoreModule.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.ImageConversionModule.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.IMGUIModule.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.PhysicsModule.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.TextCoreModule.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.TextRenderingModule.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.UI.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.UIModule.dll" Private="false"/>
+    <Reference Include="$(ManagedFolder)\UnityEngine.UnityWebRequestModule.dll" Private="false"/>
+    <Reference Include="$(NeonWhite)\Mods\MelonPrefManager.Mono.dll" Private="false"/>
+  </ItemGroup>
+
+  <Target Name="MoveDllToMods" AfterTargets="Build" Condition="Exists('$(TargetDir)$(TargetName).dll')">
+    <Message Text="Copying $(ProjectName).dll to $(OutputFolder) Folder..." Importance="High"/>
+
+    <Delete Condition="Exists('$(NeonWhite)\$(OutputFolder)\Old Mods\$(ProjectName).dll')"
+            Files="$(NeonWhite)\$(OutputFolder)\Old Mods\$(ProjectName).dll"/>
+
+    <Move Condition="Exists('$(NeonWhite)\$(OutputFolder)\$(ProjectName).dll')"
+          SourceFiles="$(NeonWhite)\$(OutputFolder)\$(ProjectName).dll"
+          DestinationFiles="$(NeonWhite)\$(OutputFolder)\Old Mods\$(ProjectName).dll"/>
+
+    <Copy SourceFiles="$(TargetDir)$(TargetName).dll"
+          DestinationFiles="$(NeonWhite)\$(OutputFolder)\$(ProjectName).dll"/>
+  </Target>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

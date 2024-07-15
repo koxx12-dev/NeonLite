@@ -1,4 +1,4 @@
-﻿using Steamworks;
+﻿using TFBGames;
 using UnityEngine;
 
 namespace NeonLite.GameObjects
@@ -22,10 +22,9 @@ namespace NeonLite.GameObjects
 
         public static void Initialize()
         {
-            run = SteamManager.Initialized;
             if (!run || (LevelRush.IsLevelRush() && LevelRush.IsHellRush())) return;
-            _path = Application.persistentDataPath + "/" + SteamUser.GetSteamID().m_SteamID.ToString() + "/NeonLite/";
-
+            if (Singleton<Game>.Instance.Platform is not PlatformBitCode platformBitCode) return;
+            _path = Application.persistentDataPath + "/" + platformBitCode.GetCurrentUser().GetUniqueIdForSaveData() + "/NeonLite/";
 
             if (LevelRestarts == null)
             {

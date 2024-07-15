@@ -23,7 +23,7 @@ namespace NeonLite.Modules
         public static Sprite[] Stamps { get; private set; }
         public static Color[] TextColors { get; private set; }
 
-        private static readonly FieldInfo leaderboardsRef = typeof(LeaderboardIntegrationSteam).GetField("leaderboardsRef", NeonLite.s_privateStatic);
+        // private static readonly FieldInfo leaderboardsRef = typeof(LeaderboardsAndLevelInfo).GetField("leaderboardsRef", NeonLite.s_privateStatic);
         private static readonly FieldInfo currentLevelData = typeof(Leaderboards).GetField("currentLevelData", NeonLite.s_privateInstance);
 
         public CommunityMedals()
@@ -210,13 +210,12 @@ namespace NeonLite.Modules
         private static void PostSetScore(ref LeaderboardScore __instance, ref ScoreData newData, ref bool globalNeonRankings)
         {
             if (!_setting_CommunityMedals_enable.Value || globalNeonRankings) return;
-
-            Leaderboards leaderboard = (Leaderboards)leaderboardsRef.GetValue(null);
-            LevelData levelData = (LevelData)currentLevelData.GetValue(leaderboard);
-
+            
+            LeaderboardsAndLevelInfo info = Object.FindObjectOfType<LeaderboardsAndLevelInfo>();
+            LevelData levelData = (LevelData)currentLevelData.GetValue(info.leaderboardsRef);
+            
             if (levelData == null) return;
             long[] communityTimes = _communityMedalTimes[levelData.levelID];
-
 
             for (int i = Medals.Length - 1; i >= 0; i--)
             {
@@ -231,7 +230,6 @@ namespace NeonLite.Modules
 
             if (newData._scoreValueMilliseconds <= (long)(levelData.timeDev * 1000f))
                 __instance._medal.sprite = NeonLite.Game.GetGameData().medalSprite_Dev;
-            return;
         }
 
         private static Sprite LoadSprite(byte[] image)

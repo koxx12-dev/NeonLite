@@ -11,7 +11,7 @@ namespace NeonLite
 {
     public class NeonLite : MelonMod
     {
-        public static readonly bool DEVBUILD = false;
+        public static readonly bool DEVBUILD = true;
         public static NeonLite Instance;
         public static Game Game { get; private set; }
         public static GameObject ModObject { get; private set; }
@@ -103,12 +103,6 @@ namespace NeonLite
 
         private void OnLevelLoadComplete()
         {
-            if (SceneManager.GetActiveScene().name.Equals("Heaven_Environment"))
-            {
-                OpenGhostDir.Initialize();
-                return;
-            }
-
             GreenHP.Initialize();
             HUDManager.Initialize();
             LevelTimer.Initialize();

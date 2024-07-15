@@ -1,7 +1,7 @@
-﻿using Steamworks;
-using System.Runtime.Serialization.Json;
+﻿using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Xml;
+using TFBGames;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -14,9 +14,9 @@ namespace NeonLite
         internal static bool GetDirectoryPath(out string path)
         {
             path = null;
-            if (!SteamManager.Initialized) return false;
+            if (Singleton<Game>.Instance.Platform is not PlatformBitCode platformBitCode) return false;
 
-            path = Application.persistentDataPath + "/" + SteamUser.GetSteamID().m_SteamID.ToString() + "/NeonLite/";
+            path = Application.persistentDataPath + "/" + platformBitCode.GetCurrentUser().GetUniqueIdForSaveData() + "/NeonLite/";
             return true;
         }
 
