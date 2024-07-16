@@ -1,4 +1,4 @@
-# NoneLite - Microsfot Store Edition
+# NoneLite - Microsoft Store Edition
 Fork of [NeonLite](https://github.com/MOPSKATER/NeonLite) modified to ~~kinda~~fully work with the Microsoft Store/Game Pass version of Neon White.
 
 ## Current Mods
