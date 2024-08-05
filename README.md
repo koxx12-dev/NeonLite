@@ -1,5 +1,8 @@
+# Archived
+Seems like [NeonLite](https://github.com/Faustas156/NeonLite) has introduced Microsoft Store version support making this project useless
+
 # NoneLite - Microsoft Store Edition
-Fork of [NeonLite](https://github.com/MOPSKATER/NeonLite) modified to ~~kinda~~fully work with the Microsoft Store/Game Pass version of Neon White.
+Fork of [NeonLite](https://github.com/Faustas156/NeonLite) modified to ~~kinda~~fully work with the Microsoft Store/Game Pass version of Neon White.
 
 ## Current Mods
 
